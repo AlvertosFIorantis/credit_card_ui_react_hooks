@@ -1,0 +1,490 @@
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+}
+body {
+  width: 100vw;
+  height: 100vh;
+  font-family: "Montserrat", "Helvetica", sans-serif;
+  font-size: 14px;
+  line-height: 1.3;
+  background-color: #0c2835;
+}
+
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  flex-direction: column;
+}
+
+#root {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  flex-direction: column;
+}
+/* vaso kai to id root na eina idio me to continaer giati otan kano renter sto index.html ola benoun mesas se ena div me to id root opote thelo na exei afto ta div ola ta proeprty san to conitner gia na boro na trekso meta to conitaer */
+.inspiration {
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  padding: 10px;
+  text-align: center;
+  text-decoration: none;
+  font-family: "Gill Sans", sans-serif;
+  font-size: 12px;
+  color: #fff;
+}
+
+.card {
+  width: 400px;
+  height: 250px;
+}
+.flip {
+  width: inherit;
+  height: inherit;
+  -webkit-transition: 0.7s;
+  transition: 0.7s;
+  -webkit-transform-style: preserve-3d;
+  transform-style: preserve-3d;
+  -webkit-animation: flip 2.5s ease;
+  animation: flip 2.5s ease;
+}
+.front,
+.back {
+  position: absolute;
+  width: inherit;
+  height: inherit;
+  border-radius: 15px;
+  color: #fff;
+  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 1px 10px 1px rgba(0, 0, 0, 0.3);
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  background-image: -webkit-gradient(
+    linear,
+    left top,
+    right top,
+    from(#03b1ff),
+    /* kanonika einai #111 */ to(#555)
+  );
+  background-image: linear-gradient(to right, #03b1ff, #03b1ff);
+  /* kanonika to xroma einai #111 kai meta #555 */
+  /* afta ta dio noumera prepei na alakso gia na alakso to xroma tis cartas apo tin aristeri fora */
+  overflow: hidden;
+}
+.front {
+  -webkit-transform: translateZ(0);
+  transform: translateZ(0);
+}
+/* afta edo einai to 2 deksia komatia tis kartas pou einai kokino  */
+.strip-bottom,
+.strip-top {
+  position: absolute;
+  right: 0;
+  height: inherit;
+  background-image: -webkit-gradient(
+    linear,
+    left top,
+    left bottom,
+    from(rgb(239, 247, 4)),
+    to(rgb(239, 247, 4))
+      /* afta ta xromata alazo gia to deksia komati tis kartas */
+  );
+  background-image: linear-gradient(
+    to bottom,
+    rgb(239, 247, 4),
+    rgb(239, 247, 4) /* afta ta xromata alazo gia to deksia komati tis kartas */
+  );
+  box-shadow: 0 0 10px 0px rgba(0, 0, 0, 0.5);
+}
+.strip-bottom {
+  width: 200px;
+  -webkit-transform: skewX(-15deg) translateX(50px);
+  transform: skewX(-15deg) translateX(50px);
+}
+.strip-top {
+  width: 180px;
+  -webkit-transform: skewX(20deg) translateX(50px);
+  transform: skewX(20deg) translateX(50px);
+}
+.logo {
+  position: absolute;
+  top: 30px;
+  right: 25px;
+  width: 80px;
+  height: 80px;
+
+  /* ego prosthesa to width kai to height */
+}
+.investor {
+  position: relative;
+  top: 30px;
+  left: 25px;
+  text-transform: uppercase;
+}
+.chip {
+  position: relative;
+  top: 60px;
+  left: 25px;
+  display: -webkit-box;
+  display: flex;
+  -webkit-box-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  justify-content: center;
+  width: 50px;
+  height: 40px;
+  border-radius: 5px;
+  background-image: -webkit-gradient(
+    linear,
+    right top,
+    left bottom,
+    from(#ffecc7),
+    to(#d0b978)
+  );
+  background-image: linear-gradient(to bottom left, #ffecc7, #d0b978);
+  overflow: hidden;
+}
+.chip .chip-line {
+  position: absolute;
+  width: 100%;
+  height: 1px;
+  background-color: #333;
+}
+.chip .chip-line:nth-child(1) {
+  top: 13px;
+}
+.chip .chip-line:nth-child(2) {
+  top: 20px;
+}
+.chip .chip-line:nth-child(3) {
+  top: 28px;
+}
+.chip .chip-line:nth-child(4) {
+  left: 25px;
+  width: 1px;
+  height: 50px;
+}
+.chip .chip-main {
+  width: 20px;
+  height: 25px;
+  border: 1px solid #333;
+  border-radius: 3px;
+  background-image: -webkit-gradient(
+    linear,
+    right top,
+    left bottom,
+    from(#efdbab),
+    to(#e1cb94)
+  );
+  background-image: linear-gradient(to bottom left, #efdbab, #e1cb94);
+  z-index: 1;
+}
+.wave {
+  position: relative;
+  top: 20px;
+  left: 100px;
+}
+.card-number {
+  position: relative;
+  display: -webkit-box;
+  display: flex;
+  -webkit-box-pack: justify;
+  justify-content: space-between;
+  -webkit-box-align: center;
+  align-items: center;
+  margin: 40px 25px 10px;
+  font-size: 23px;
+  font-family: "cc font", monospace;
+}
+.end {
+  margin-left: 25px;
+  text-transform: uppercase;
+  font-family: "cc font", monospace;
+}
+.end .end-text {
+  font-size: 9px;
+  color: rgba(255, 255, 255, 0.8);
+}
+.card-holder {
+  margin: 10px 25px;
+  text-transform: uppercase;
+  font-family: "cc font", monospace;
+}
+.master {
+  position: absolute;
+  right: 20px;
+  bottom: 20px;
+  display: -webkit-box;
+  display: flex;
+}
+
+.card {
+  -webkit-perspective: 1000;
+  perspective: 1000;
+}
+.card:hover .flip {
+  -webkit-transform: rotateY(180deg);
+  transform: rotateY(180deg);
+}
+.back {
+  -webkit-transform: rotateY(180deg) translateZ(0);
+  transform: rotateY(180deg) translateZ(0);
+  background: #9e9e9e;
+}
+.back .strip-black {
+  position: absolute;
+  top: 30px;
+  left: 0;
+  width: 100%;
+  height: 50px;
+  background: #000;
+}
+.back .ccv {
+  position: absolute;
+  top: 110px;
+  left: 0;
+  right: 0;
+  height: 36px;
+  width: 90%;
+  padding: 10px;
+  margin: 0 auto;
+  border-radius: 5px;
+  text-align: right;
+  letter-spacing: 1px;
+  color: #000;
+  background: #fff;
+}
+.back .ccv label {
+  display: block;
+  margin: -30px 0 15px;
+  font-size: 10px;
+  text-transform: uppercase;
+  color: #fff;
+}
+.back .terms {
+  position: absolute;
+  top: 150px;
+  padding: 20px;
+  font-size: 10px;
+  text-align: justify;
+}
+
+@-webkit-keyframes flip {
+  0%,
+  100% {
+    -webkit-transform: rotateY(0deg);
+    transform: rotateY(0deg);
+  }
+  50% {
+    -webkit-transform: rotateY(180deg);
+    transform: rotateY(180deg);
+  }
+}
+@keyframes flip {
+  0%,
+  100% {
+    -webkit-transform: rotateY(0deg);
+    transform: rotateY(0deg);
+  }
+  50% {
+    -webkit-transform: rotateY(180deg);
+    transform: rotateY(180deg);
+  }
+}
+
+/* my form */
+.form {
+  margin-top: 5rem;
+  width: 50%;
+  min-width: 400px;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: space-evenly;
+
+  background: skyblue;
+
+  min-height: 100px;
+  height: 50%;
+  flex-wrap: wrap;
+  flex-direction: column;
+}
+
+input {
+  font-size: 18px;
+  text-align: center;
+  background: transparent;
+
+  /* padding: 10px 10px 10px 5px; */
+
+  display: block;
+
+  width: 100%;
+
+  border: none;
+
+  border-bottom: 1px solid #757575;
+}
+
+input:focus {
+  outline: none;
+
+  border-bottom: 0px solid #757575;
+}
+
+.input-container-label {
+  display: flex;
+  width: 60%;
+  flex-direction: column;
+  max-width: 250px;
+}
+
+input:focus {
+  outline: none;
+}
+
+label {
+  color: #999;
+
+  font-size: 18px;
+
+  font-weight: normal;
+
+  position: absolute;
+
+  pointer-events: none;
+
+  transition: all 0.3s ease;
+}
+
+input:valid + label {
+  /* se sindiasmo me to apo pano class kai to requred elemetn mesa sto input box kano pano kato to label */
+
+  transform: translateY(-20px);
+
+  color: #4285f4;
+}
+
+input:focus ~ span {
+  -webkit-animation: highlighting 0.5s ease-out running;
+
+  -moz-animation: highlighting 0.5s ease-out running;
+
+  animation: highlighting 0.5s ease-out running;
+
+  border-bottom: 1px solid blue;
+}
+
+input:focus .card.flip {
+  -webkit-transform: rotateY(180deg);
+  transform: rotateY(180deg);
+}
+
+/* animations */
+
+@-webkit-keyframes highlighting {
+  0% {
+    width: 0%;
+
+    order-bottom: 1px solid blue;
+  }
+
+  25% {
+    width: 30%;
+  }
+
+  50% {
+    width: 50%;
+  }
+
+  75% {
+    width: 75%;
+  }
+
+  100% {
+    width: 100%;
+  }
+}
+
+@-moz-keyframes highlighting {
+  0% {
+    width: 0%;
+
+    order-bottom: 1px solid blue;
+  }
+
+  25% {
+    width: 30%;
+  }
+
+  50% {
+    width: 50%;
+  }
+
+  75% {
+    width: 75%;
+  }
+
+  100% {
+    width: 100%;
+  }
+}
+
+@keyframes highlighting {
+  0% {
+    width: 0%;
+
+    order-bottom: 1px solid blue;
+  }
+
+  25% {
+    width: 30%;
+  }
+
+  50% {
+    width: 50%;
+  }
+
+  75% {
+    width: 75%;
+  }
+
+  100% {
+    width: 100%;
+  }
+}
+
+/* https://codepen.io/FilipVitas/pen/ddLVZx */
+
+.expiration {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  width: 60%;
+  max-width: 250px;
+
+  /* na exo to idio width me to input-container-label */
+}
+
+.expiration_container {
+  max-width: 14%;
+}
+
+.expriation_div {
+  color: #999;
+
+  font-size: 18px;
+
+  font-weight: normal;
+}
